@@ -2,7 +2,7 @@ function betterMonitorSwitch(col = null)
 {
   var old = document.getElementById("betterMonitorSwitcher");
   if (old) old.parentElement.removeChild(old);
-  var elems = col || document.querySelectorAll('section[role=region] > div>div>div>div[role=listbox]>div[role="presentation"]>div[role="presentation"]>div[data-value] > span');
+  var elems = col || document.querySelectorAll('section[role=region] > div>div>div>div>div[role=listbox]>div[role="presentation"]>div[role="presentation"]>div[data-value] > span');
   var switcher = document.createElement("span");
   switcher.id = "betterMonitorSwitcher";
   switcher.classList.add("betterMonitorSwitcher");
@@ -14,7 +14,7 @@ function betterMonitorSwitch(col = null)
     btn.onclick = () => {
       e.click();
       let fun = () => {
-          var x = document.querySelectorAll('section[role=region] > div>div>div>div[role=listbox]>div[role=presentation]:nth-child(2)>div>span')[e.sid]
+          var x = document.querySelectorAll('section[role=region] > div>div>div>div>div[role=listbox]>div[role=presentation]:nth-child(2)>div>span')[e.sid]
           if (x) x.click();
           else setTimeout(fun, 10);
         }
@@ -72,7 +72,7 @@ function betterMonitorSwitchCSS()
 
 function betterMonitorSwitchInvoker()
 {
-  var e = document.querySelectorAll('section[role=region] > div>div>div>div[role=listbox]>div[role="presentation"]>div[role="presentation"]>div[data-value] > span');
+  var e = document.querySelectorAll('section[role=region] > div>div>div>div>div[role=listbox]>div[role="presentation"]>div[role="presentation"]>div[data-value] > span');
   if (e && e.length > 0) betterMonitorSwitch(e);
   else setTimeout( betterMonitorSwitchInvoker, 200);
 }
